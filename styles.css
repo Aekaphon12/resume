@@ -76,6 +76,84 @@ footer {
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
+  overflow: visible;
+  position: relative;
+  z-index: 90;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-switch {
+  position: relative;
+  z-index: 40;
+}
+
+.lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--brand);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-trigger:hover {
+  background: #fff;
+  border-color: rgba(12, 74, 110, 0.24);
+}
+
+.lang-trigger svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.lang-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 76px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(17, 24, 39, 0.14);
+  padding: 6px;
+  display: grid;
+  gap: 4px;
+  z-index: 9999;
+}
+
+.lang-menu[hidden] {
+  display: none !important;
+}
+
+.lang-btn {
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.lang-btn:hover {
+  background: rgba(12, 74, 110, 0.08);
+}
+
+.lang-btn.active {
+  background: linear-gradient(120deg, #0c4a6e, #0f766e);
+  color: #fff;
 }
 
 .logo {
@@ -418,8 +496,24 @@ footer {
     align-items: flex-start;
   }
 
+  .header-actions {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .lang-switch {
+    align-self: auto;
+  }
+
+  .lang-menu {
+    top: auto;
+    bottom: calc(100% + 8px);
+  }
+
   .nav,
-  .download,
+  .header-actions,
   .btn,
   .hero-cta {
     width: 100%;
